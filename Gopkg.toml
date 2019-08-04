@@ -78,3 +78,9 @@
 [[constraint]]
   name = "github.com/stretchr/testify"
   version = "1.3.0"
+
+# For fluent-bit plugin
+
+[[constraint]]
+  branch = "master"
+  name = "github.com/fluent/fluent-bit-go"
