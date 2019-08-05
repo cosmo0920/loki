@@ -228,6 +228,7 @@ clean:
 	rm -rf .cache
 	rm -rf cmd/docker-driver/rootfs
 	rm -rf dist/
+	rm -rf fluent-bit/fluent-bit-go-loki/out_loki.*
 	go clean ./...
 
 #########
@@ -350,6 +351,12 @@ docker-driver-clean:
 	-docker plugin disable grafana/loki-docker-driver:$(IMAGE_TAG)
 	-docker plugin rm grafana/loki-docker-driver:$(IMAGE_TAG)
 	rm -rf cmd/docker-driver/rootfs
+
+#####################
+# fluent-bit plugin #
+#####################
+fluent-bit-plugin:
+	go build -buildmode=c-shared -o fluent-bit/fluent-bit-go-loki/out_loki.so ./fluent-bit/fluent-bit-go-loki
 
 ########################
 # Bigtable Backup Tool #
